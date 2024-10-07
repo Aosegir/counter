@@ -7,7 +7,21 @@ createButton.addEventListener('click', () => {
 });
 
 function createCounter(categoryInput) {
+    let container = document.createElement('div');
+    container.classList.add('category');
+    
     let category = document.createElement('h4');
     category.innerHTML = categoryInput;
-    counters.appendChild(category);
+    container.appendChild(category);
+
+    let count = document.createElement('p');
+    count.innerHTML = '0';
+    count.addEventListener('click', () => {
+        let currentCount = Number(count.innerHTML);
+        currentCount++;
+        count.innerHTML = currentCount;
+    });
+    container.appendChild(count);
+
+    counters.appendChild(container);
 };
